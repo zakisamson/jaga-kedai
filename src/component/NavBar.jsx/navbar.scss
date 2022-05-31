@@ -5,6 +5,7 @@
     height: 100vh;
     background-color: $green-primary;
     border-radius: 0 .5rem .5rem 0;
+    transition: all .5s ease-in-out;
 
     display: flex;
     flex-direction: column;
@@ -23,7 +24,6 @@
     }
     
     .nav-menu-container{
-        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -31,18 +31,27 @@
 
         .nav-menu{
             height: 3rem;
-            padding: 0 .5rem;
             display: flex;
             align-items: center;
             gap: 1rem;
+            transition: width .5s ease-in-out;
 
             .menu-icon{
                 width: 1.5rem;
+                transition: width 0s;
             }
 
-            // .menu-link{
-            //     // display: none;
+            // .menu-link {
+                
             // }
+
+            .open{
+                transition: opacity .2s linear .5s;
+            }
+
+            .close{
+                transition: opacity 0s;
+            }
         }
 
         .active{

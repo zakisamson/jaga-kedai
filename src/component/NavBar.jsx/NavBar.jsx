@@ -38,7 +38,15 @@ function NavBar() {
     }
 
     return (
-    <nav className='dashboard-nav-container' style={displayNavBar ? {padding: '2rem 2rem'} : {padding: '2rem 1rem'}}>
+    <nav 
+        className='dashboard-nav-container' 
+        style={{
+            padding: displayNavBar ? '2rem 2rem' : '2rem 1rem',
+            width: displayNavBar ? '20vw' : '7vw'
+        }
+            // displayNavBar ? {padding: '2rem 2rem'} : {padding: '2rem 1rem'}
+        }
+    >
         <div className='nav-header' style={displayNavBar ? {justifyContent: 'space-between'} : {justifyContent: 'center'}}>
             <img className='nav-logo' src={assets.logoTextIcon} alt=""  style={displayNavBar ? {display: 'block'} : {display: 'none'}}/>
             <img className='nav-icon' src={displayNavBar ? assets.hamburderCloseIcon : assets.hamburgerMenuIcon} alt="" onClick={handleDisplayNav}/>

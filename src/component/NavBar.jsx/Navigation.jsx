@@ -13,15 +13,15 @@ function Navigation({navMenu: {navPath, navImageActive, navImageInactive, navNam
       id={`nav-menu-${navName.toLowerCase()}`} 
       onClick={handleNavigation}
       style={{
-        width: displayNavBar ? '100%' : '3rem',
-        justifyContent: displayNavBar ? 'flex-start' : 'center'
+        padding: displayNavBar ? '0 2rem 0 1rem' : '.75rem',
+        width: displayNavBar ? 'calc(20vw - 4rem)' : '3rem',
     }}
     >
         <img src={isActive ? navImageActive : navImageInactive} alt="" className='menu-icon' />
         <span 
-          className={`menu-link menu-${navName.toLowerCase()}`}
+          className={displayNavBar ? 'nav-link open' : 'nav-link close'}
           style={{
-            display: displayNavBar ? 'block' : 'none',
+            opacity: displayNavBar ? '1' : '0',
             color: isActive ? '#34905f' : '#fdfdfd'
           }}
         >
