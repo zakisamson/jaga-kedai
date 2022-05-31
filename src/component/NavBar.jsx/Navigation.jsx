@@ -1,7 +1,7 @@
 import React from 'react'
 import {NavLink, useLocation} from 'react-router-dom'
 
-function Navigation({navMenu: {navPath, navImageActive, navImageInactive, navName}, handleNavigation, displayNavBar}) {
+function Navigation({navMenu: {navPath, navImage, navImageInactive, navName}, handleNavigation, displayNavBar}) {
 
   const pathname = useLocation();
   let isActive = pathname.pathname === navPath;
@@ -17,7 +17,7 @@ function Navigation({navMenu: {navPath, navImageActive, navImageInactive, navNam
         width: displayNavBar ? 'calc(20vw - 4rem)' : '3rem',
     }}
     >
-        <img src={isActive ? navImageActive : navImageInactive} alt="" className='menu-icon' />
+        <img src={isActive ? navImage : navImageInactive} alt="" className='menu-icon' />
         <span 
           className={displayNavBar ? 'nav-link open' : 'nav-link close'}
           style={{

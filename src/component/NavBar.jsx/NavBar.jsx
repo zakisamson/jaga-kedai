@@ -9,7 +9,7 @@ function NavBar() {
     const navMenu = [
         {
             navName: 'Dashboard',
-            navImageActive: assets.dashboardIcon,
+            navImage: assets.dashboardIcon,
             navImageInactive: assets.dashboardInactiveIcon,
             navPath: '/dashboard'
         },
@@ -17,19 +17,19 @@ function NavBar() {
             navName: 'Menu',
             navImage: assets.menuIcon,
             navImageInactive: assets.menuInactiveIcon,
-            navPath: '/dashboard/menu'
+            navPath: '/menu'
         },
         {
             navName: 'Merchant',
             navImage: assets.merchantIcon,
             navImageInactive: assets.merchantInactiveIcon,
-            navPath: '/dashboard/merchant'
+            navPath: '/merchant'
         },
         {
             navName: 'Reports',
             navImage: assets.reportsIcon,
             navImageInactive: assets.reportsInactiveIcon,
-            navPath: '/dashboard/reports'
+            navPath: '/reports'
         }
     ]
 
@@ -47,9 +47,26 @@ function NavBar() {
             // displayNavBar ? {padding: '2rem 2rem'} : {padding: '2rem 1rem'}
         }
     >
-        <div className='nav-header' style={displayNavBar ? {justifyContent: 'space-between'} : {justifyContent: 'center'}}>
-            <img className='nav-logo' src={assets.logoTextIcon} alt=""  style={displayNavBar ? {display: 'block'} : {display: 'none'}}/>
-            <img className='nav-icon' src={displayNavBar ? assets.hamburderCloseIcon : assets.hamburgerMenuIcon} alt="" onClick={handleDisplayNav}/>
+        <div className='nav-header' 
+            style={
+                displayNavBar 
+                ? {justifyContent: 'space-between'} 
+                : {justifyContent: 'center'}
+            }>
+            <img className='nav-logo' 
+                src={assets.logoTextIcon} 
+                alt=""  
+                style={
+                    displayNavBar 
+                    ? {display: 'block'} 
+                    : {display: 'none'}}/>
+            <img className='nav-icon' 
+                src={
+                    displayNavBar 
+                    ? assets.hamburderCloseIcon 
+                    : assets.hamburgerMenuIcon} 
+                alt="" 
+                onClick={handleDisplayNav}/>
         </div>
         <div className='nav-menu-container'>
             {navMenu.map((menu, idx) => <Navigation key={idx} navMenu={menu} displayNavBar={displayNavBar} /> )}
