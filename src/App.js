@@ -1,10 +1,14 @@
-import './App.css';
+import './App.scss';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import Dashboard from './container/Dashboard/Dashboard';
 
 function App() {
   return (
-    <main>
-      <h1>Hello</h1>
-    </main>
+    <Router>
+      <Routes>
+        <Route path='/dashboard' element={<Dashboard />} />
+      </Routes>
+    </Router>
   );
 }
 
