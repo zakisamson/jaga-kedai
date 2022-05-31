@@ -18,9 +18,15 @@
         gap: 2rem;
 
         .nav-logo{
+            position: relative;
             height: 16px;
             align-self: center;
         }
+
+        .close{
+            transition: opacity 0s;
+        }
+
     }
     
     .nav-menu-container{
@@ -42,7 +48,7 @@
             }
 
             .open{
-                transition: opacity .2s linear .5s;
+                transition: visibility 0s, opacity .2s linear .5s;
             }
 
             .close{

@@ -22,7 +22,8 @@ function Navigation({navMenu: {navPath, navImage, navImageInactive, navName}, ha
           className={displayNavBar ? 'nav-link open' : 'nav-link close'}
           style={{
             opacity: displayNavBar ? '1' : '0',
-            color: isActive ? '#34905f' : '#fdfdfd'
+            color: isActive ? '#34905f' : '#fdfdfd',
+            visibility: displayNavBar ? 'visible' : 'hidden'
           }}
         >
           {navName}

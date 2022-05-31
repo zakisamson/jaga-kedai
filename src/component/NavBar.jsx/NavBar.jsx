@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { assets } from './assets';
 import Navigation from './Navigation';
 import './navbar.scss'
 
-function NavBar() {
-    const [displayNavBar, setDisplayNavBar] = useState(false);
-    
+function NavBar({displayNavBar, handleDisplayNav}) {
+
+    console.log(displayNavBar)
     const navMenu = [
         {
             navName: 'Dashboard',
@@ -33,19 +33,13 @@ function NavBar() {
         }
     ]
 
-    const handleDisplayNav = () => {
-        setDisplayNavBar(!displayNavBar);
-    }
-
     return (
     <nav 
         className='dashboard-nav-container' 
         style={{
             padding: displayNavBar ? '2rem 2rem' : '2rem 1rem',
             width: displayNavBar ? '20vw' : '7vw'
-        }
-            // displayNavBar ? {padding: '2rem 2rem'} : {padding: '2rem 1rem'}
-        }
+        }}
     >
         <div className='nav-header' 
             style={
@@ -53,7 +47,7 @@ function NavBar() {
                 ? {justifyContent: 'space-between'} 
                 : {justifyContent: 'center'}
             }>
-            <img className='nav-logo' 
+            <img className={displayNavBar ? 'nav-logo open' : 'nav-logo close'} 
                 src={assets.logoTextIcon} 
                 alt=""  
                 style={
@@ -66,7 +60,7 @@ function NavBar() {
                     ? assets.hamburderCloseIcon 
                     : assets.hamburgerMenuIcon} 
                 alt="" 
-                onClick={handleDisplayNav}/>
+                onClick={() => handleDisplayNav()}/>
         </div>
         <div className='nav-menu-container'>
             {navMenu.map((menu, idx) => <Navigation key={idx} navMenu={menu} displayNavBar={displayNavBar} /> )}
