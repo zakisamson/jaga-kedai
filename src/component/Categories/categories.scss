@@ -1,0 +1,15 @@
+@import '../../base-styles/color.scss';
+
+.categories-container{
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+
+    .category{
+        padding: .5rem 1.5rem;
+        border-radius: .25rem;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+}

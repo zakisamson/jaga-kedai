@@ -13,10 +13,10 @@ function App() {
 
   return (
     <Router>
-      <NavBar displayNavBar={displayNavBar} handleDisplayNav={handleDisplayNav}/>
       <Routes>
-        <Route path='/dashboard' element={<Dashboard />}/>
-        <Route path='*' element={<Dashboard />}/>
+        <Route path='/user' element={<NavBar displayNavBar={displayNavBar} handleDisplayNav={handleDisplayNav}/>}>
+          <Route path='dashboard' element={<Dashboard />}/>
+        </Route>
       </Routes>
     </Router>
   );

@@ -1,68 +1,70 @@
 @import '../../base-styles/color.scss';
 
-.dashboard-nav-container{
-    width: fit-content;
-    height: 100vh;
-    background-color: $green-primary;
-    border-radius: 0 .5rem .5rem 0;
-    transition: all .5s ease-in-out;
-
+.main-container{
+    width: 100vw;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4rem;
+    flex-direction: row;
 
-    .nav-header{
-        width: 100%;
-        display: flex;
-        gap: 2rem;
-
-        .nav-logo{
-            position: relative;
-            height: 16px;
-            align-self: center;
-        }
-
-        .close{
-            transition: opacity 0s;
-        }
-
-    }
+    .dashboard-nav-container{
+        width: fit-content;
+        height: 100vh;
+        background-color: $green-primary;
+        border-radius: 0 .5rem .5rem 0;
+        transition: all .5s ease-in-out;
     
-    .nav-menu-container{
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-
-        .nav-menu{
-            height: 3rem;
+        align-items: flex-start;
+        gap: 4rem;
+    
+        .nav-header{
+            width: 100%;
             display: flex;
-            align-items: center;
-            gap: 1rem;
-            transition: width .5s ease-in-out;
-
-            .menu-icon{
-                width: 1.5rem;
-                transition: width 0s;
+            gap: 2rem;
+    
+            .nav-logo{
+                position: relative;
+                height: 16px;
+                align-self: center;
             }
-
-            .open{
-                transition: visibility 0s, opacity .2s linear .5s;
-            }
-
+    
             .close{
                 transition: opacity 0s;
             }
+    
         }
-
-        .active{
-            background-color: $green-secondary;
-            border-radius: .75rem;
+        
+        .nav-menu-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+    
+            .nav-menu{
+                height: 3rem;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                transition: width .5s ease-in-out;
+    
+                .menu-icon{
+                    width: 1.5rem;
+                    transition: width 0s;
+                }
+    
+                .open{
+                    transition: visibility 0s, opacity .2s linear .5s;
+                }
+    
+                .close{
+                    transition: opacity 0s;
+                }
+            }
+    
+            .active{
+                background-color: $green-secondary;
+                border-radius: .75rem;
+            }
         }
     }
 }
-// 1.dashboard-nav-container
-// 2.nav-user
-// 2.nav-menu-${navName.toLowerCase()}
-// 3.menu-${navName.toLowerCase()}
