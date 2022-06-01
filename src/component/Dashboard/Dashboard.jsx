@@ -8,9 +8,16 @@ import { products } from '../../products/dataDummy'
 
 function Dashboard() {
   const [activeCategory, setActiveCategory] = useState('All');
-  const categories = ['All', ...new Set(products.map(product => product.productCategory))];
   const [orderedItem, setOrderedItem] = useState([]);
   const [totalPriceOrder, setTotalPriceOrder] = useState(0);
+  const [searchInput, setSearchInput] = useState('')
+  const categories = ['All', ...new Set(products.map(product => product.productCategory))];
+
+  const handleSearch = e => {
+    e.preventDefault()
+    setSearchInput(e.target.value)
+    console.log(searchInput)
+  }
 
   const handleCategory = (string) => {
     setActiveCategory(string);
@@ -41,13 +48,13 @@ function Dashboard() {
   return (
     <div className='dashboard-container'>
       <div className="col-1">
-        <SearchBar />
+        <SearchBar handleSearch={handleSearch}/>
         <Categories 
           handleCategory={handleCategory} 
           activeCategory={activeCategory}
           categories={categories}
         />
-        <Products activeCategory={activeCategory} handleAddOrder={handleAddOrder}/>
+        <Products activeCategory={activeCategory} handleAddOrder={handleAddOrder} searchInput={searchInput}/>
       </div>
       <div className="col-2">
         <div className="order-container">
