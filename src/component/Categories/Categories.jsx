@@ -1,14 +1,7 @@
-import React, { useState } from 'react'
-import { products } from '../../products/dataDummy'
+import React from 'react'
 import './categories.scss'
 
-function Category() {
-    const [activeCategory, setActiveCategory] = useState('all');
-    const categories = ['All', ...new Set(products.map(product => product.productCategory))];
-
-    const handleCategory = (string) => {
-        setActiveCategory(string);
-    }
+function Category({handleCategory, activeCategory, categories}) {
 
     return (
         <div className='categories-container'>

@@ -1,12 +1,11 @@
 @import '../../base-styles/color.scss';
 
 .dashboard-container{
-    position: absolute;
-    width: 80vw;
+    width: 100%;
     height: 100%;
-    right: 0;
     padding: 2rem 2rem 0 4rem;
     display: flex;
+    background-color: $gray-background;
 
     .col-1 {
         width: 70%;
