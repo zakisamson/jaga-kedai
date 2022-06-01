@@ -23,7 +23,6 @@ function Dashboard() {
           categories={categories}
         />
         <Products activeCategory={activeCategory}/>
-        <div className="products-container">Product Card Goes Here</div>
       </div>
       <div className="col-2">
         <div className="order-container">

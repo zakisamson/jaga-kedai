@@ -1,0 +1,11 @@
+@import '../../base-styles/color.scss';
+
+.products-container{
+    width: 100%;
+    height: calc(90vh - (6rem));
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, calc((100% - 2rem) / 2));
+    grid-template-rows: repeat(auto-fill, calc((100% - 2rem) / 5.5));
+    gap: 1rem;
+}
