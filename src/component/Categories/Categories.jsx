@@ -1,7 +1,9 @@
 import React from 'react'
+import { products } from '../../products/dataDummy'
 import './categories.scss'
 
 function Category({handleCategory, activeCategory, categories}) {
+    
 
     return (
         <div className='categories-container'>

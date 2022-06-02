@@ -1,0 +1,33 @@
+@import '../../base-styles/color.scss';
+
+.ordered__container{
+    width: 100%;
+    height: calc(100% - 42px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 2rem;
+
+    .ordered__list{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1.5rem;
+    }
+
+    .ordered__total{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        button{
+            font-size: 1rem;
+            color: $white-secondary;
+            background-color: $green-primary;
+            border-radius: .25rem;
+            padding: .75rem 0;
+            outline: none;
+            border: none;
+        }
+    }
+}

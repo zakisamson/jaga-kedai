@@ -1,18 +1,18 @@
 import React from 'react'
+import './order.scss'
+import OrderCard from './OrderCard'
+import TotalPrice from './TotalPrice'
 
-function Order({orderedItem}) {
+function Order({orderedItem, totalPriceOrder}) { 
   return (
-    <div>
-        {orderedItem.map((item, index) => {
-            return(
-                <div key={index}>
-                    <h1>{item.productName}</h1>
-                    <h1>{item.productPrice}</h1>
-                    <h1>{item.quantity}</h1>
-                </div>
-                )
-            })
-        }
+    <div className='ordered__container'>
+      <div className="ordered__list">
+        {orderedItem.map((item, index) => <OrderCard key={index} ordered={item}/>)}
+      </div>
+      <div className="ordered__total">
+        {totalPriceOrder && <TotalPrice totalPriceOrder={totalPriceOrder}/>}
+        <button>Selesaikan Pesanan</button>
+      </div>
     </div>
   )
 }

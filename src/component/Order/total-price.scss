@@ -1,0 +1,19 @@
+@import '../../base-styles/color.scss';
+
+.total-price__container{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+
+    .total__header{
+        font-size: 1.25rem;
+        font-weight: 400;
+    }
+
+    .total__display{
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+}

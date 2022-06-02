@@ -5,7 +5,7 @@ import './searchbar.scss'
 function SearchBar({handleSearch}) {
   return (
     <div className="search-bar-container">
-        <input type="text" placeholder="search here..." className="search-input" onChange={e => handleSearch(e)}/>
+        <input type="text" placeholder="Search here..." className="search-input" onChange={e => handleSearch(e)}/>
         <img className='search-icon' src={SearchIcon} alt="" />
     </div>
   )

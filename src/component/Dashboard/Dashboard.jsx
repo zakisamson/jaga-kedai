@@ -16,7 +16,6 @@ function Dashboard() {
   const handleSearch = e => {
     e.preventDefault()
     setSearchInput(e.target.value)
-    console.log(searchInput)
   }
 
   const handleCategory = (string) => {
@@ -57,11 +56,8 @@ function Dashboard() {
         <Products activeCategory={activeCategory} handleAddOrder={handleAddOrder} searchInput={searchInput}/>
       </div>
       <div className="col-2">
-        <div className="order-container">
-          <h1>Orders</h1>
-          {orderedItem.length > 0 && <Order orderedItem={orderedItem}/>}
-          {totalPriceOrder && <h1>{totalPriceOrder}</h1>}
-        </div>
+        <h1 className='col-2__header'>Orders</h1>
+        {orderedItem.length > 0 && <Order orderedItem={orderedItem} totalPriceOrder={totalPriceOrder}/>}
       </div>
     </div>
   )
