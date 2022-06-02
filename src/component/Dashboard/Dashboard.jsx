@@ -39,6 +39,23 @@ function Dashboard({products}) {
     }
   }
 
+  const handleSubtractOrder = (obj) => {
+    if(orderedItem.length > 0){
+      const ordered = orderedItem.find(item => item.productName === obj.productName);
+
+      if(ordered.quantity > 1){
+        setOrderedItem(orderedItem.map(item => 
+          item.productName === obj.productName ? {...ordered, quantity: ordered.quantity - 1} : item
+        ))
+      } else {
+        setOrderedItem(orderedItem.filter(item => item.productName !== obj.productName))
+      }
+      console.log(ordered.quantity)
+    }
+  }
+
+  console.log(orderedItem)
+
   useEffect(() => {
     if(orderedItem.length){
       const total = orderedItem.reduce((acc, item) => {
@@ -57,7 +74,14 @@ function Dashboard({products}) {
           activeCategory={activeCategory}
           products={products}
         />
-        <Products products={products} activeCategory={activeCategory} handleAddOrder={handleAddOrder} searchInput={searchInput} rupiahFormat={rupiahFormat}/>
+        <Products 
+          products={products} 
+          activeCategory={activeCategory}
+          handleAddOrder={handleAddOrder}
+          handleSubtractOrder={handleSubtractOrder}
+          searchInput={searchInput} 
+          orderedItem={orderedItem}
+          rupiahFormat={rupiahFormat}/>
       </div>
       <div className="col-2">
         <h1 className='col-2__header'>Orders</h1>
