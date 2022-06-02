@@ -1,0 +1,31 @@
+@import '../../../base-styles/color.scss';
+
+.ordered__card{
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .ordered__name{
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    .ordered__details{
+        display: flex;
+        justify-content: space-between;
+
+        .ordered__price{
+            color: $green-primary;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .ordered_quantity{
+            color: rgb(126, 126, 126);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+    }
+}
