@@ -15,4 +15,5 @@ export const assets = {
     merchantInactiveIcon: importIcons('merchant-inactive'),
     reportsIcon: importIcons('reports'),
     reportsInactiveIcon: importIcons('reports-inactive'),
+    defaultPlaceholder: require('./../../products/images/default-placeholder.png')
 }

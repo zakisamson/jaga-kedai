@@ -1,7 +1,7 @@
 import React from 'react'
 import './product-card.scss'
 
-function ProductCard({product: {productName, productPrice, productImage}, handleAddOrder}) {
+function ProductCard({product: {productName, productPrice, productImage}, handleAddOrder, rupiahFormat}) {
 
   return (
     <div 
@@ -16,7 +16,7 @@ function ProductCard({product: {productName, productPrice, productImage}, handle
         <img className='card__image' src={productImage} alt="" />
         <div className="card__details">
           <h2 className='card__name'>{productName}</h2>
-          <span className='card__price'>{`Rp. ${productPrice}`}</span>
+          <span className='card__price'>{rupiahFormat(productPrice)}</span>
         </div>
     </div>
   )

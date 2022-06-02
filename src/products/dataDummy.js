@@ -9,13 +9,14 @@ const image = {
     roseMeTender: importImage('sweet-chicken-roast')
 }
 
-export const products = [
+export const productsDummy = [
     {
         productId: 1,
         productName: 'Thai Salad',
         productCategory: 'Foods',
         productPrice: 74000,
         productImage: image.thaiSalad,
+        productImageUrl: './images/thai-salad.jpeg',
         productCreated: new Date()
     },
     {
@@ -24,6 +25,7 @@ export const products = [
         productCategory: 'Foods',
         productPrice: 92000,
         productImage: image.sweetChickenRoast,
+        productImageUrl: './images/sweet-chicken-roast.jpeg',
         productCreated: new Date()
     },
     {
@@ -32,6 +34,7 @@ export const products = [
         productCategory: 'Drinks',
         productPrice: 74000,
         productImage: image.bloomGloom,
+        productImageUrl: './images/bloom-gloom.jpeg',
         productCreated: new Date()
     },
     {
@@ -40,6 +43,7 @@ export const products = [
         productCategory: 'Drinks',
         productPrice: 74000,
         productImage: image.roseMeTender,
+        productImageUrl: './images/rose-me-tender.jpeg',
         productCreated: new Date()
     }
 ]

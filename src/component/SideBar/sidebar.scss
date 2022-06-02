@@ -48,6 +48,8 @@
                 align-items: center;
                 gap: 1rem;
                 transition: width .5s ease-in-out;
+                border: none;
+                outline: none;
     
                 .menu-icon{
                     width: 1.5rem;
@@ -64,7 +66,7 @@
             }
     
             .active{
-                background-color: $green-secondary;
+                background-color: $white-secondary;
                 border-radius: .5rem;
                 font-weight: 600;
             }

@@ -1,17 +1,23 @@
 import React, {useEffect, useState} from 'react'
 import './dashboard.scss'
 import SearchBar from '../SearchBar/SearchBar'
-import Categories from '../Categories/Categories'
-import Products from '../Products/Products' 
-import Order from '../Order/Order'
-import { products } from '../../products/dataDummy'
+import Categories from './Categories/Categories'
+import Products from './Products/Products' 
+import Order from './Order/Order'
 
-function Dashboard() {
+function Dashboard({products}) {
   const [activeCategory, setActiveCategory] = useState('All');
   const [orderedItem, setOrderedItem] = useState([]);
   const [totalPriceOrder, setTotalPriceOrder] = useState(0);
   const [searchInput, setSearchInput] = useState('')
-  const categories = ['All', ...new Set(products.map(product => product.productCategory))];
+
+  const rupiahFormat = (price) => {
+    return new Intl.NumberFormat('id-RP', {
+      style: 'currency',
+      currency: 'IDR'
+    })
+    .format(price)
+  }
 
   const handleSearch = e => {
     e.preventDefault()
@@ -38,11 +44,9 @@ function Dashboard() {
       const total = orderedItem.reduce((acc, item) => {
         return acc += (item.quantity * item.productPrice)
       }, 0)
-      setTotalPriceOrder(total)
+      setTotalPriceOrder(rupiahFormat(total))
     }
   }, [totalPriceOrder, orderedItem])
-  
-  console.log(totalPriceOrder)
 
   return (
     <div className='dashboard-container'>
@@ -51,13 +55,13 @@ function Dashboard() {
         <Categories 
           handleCategory={handleCategory} 
           activeCategory={activeCategory}
-          categories={categories}
+          products={products}
         />
-        <Products activeCategory={activeCategory} handleAddOrder={handleAddOrder} searchInput={searchInput}/>
+        <Products products={products} activeCategory={activeCategory} handleAddOrder={handleAddOrder} searchInput={searchInput} rupiahFormat={rupiahFormat}/>
       </div>
       <div className="col-2">
         <h1 className='col-2__header'>Orders</h1>
-        {orderedItem.length > 0 && <Order orderedItem={orderedItem} totalPriceOrder={totalPriceOrder}/>}
+        {orderedItem.length > 0 && <Order orderedItem={orderedItem} totalPriceOrder={totalPriceOrder} rupiahFormat={rupiahFormat}/>}
       </div>
     </div>
   )

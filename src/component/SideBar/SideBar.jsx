@@ -2,7 +2,7 @@ import React from 'react'
 import { assets } from './assets';
 import Navigation from './Navigation';
 import { Outlet } from 'react-router-dom';
-import './navbar.scss'
+import './sidebar.scss'
 
 function NavBar({displayNavBar, handleDisplayNav}) {
 

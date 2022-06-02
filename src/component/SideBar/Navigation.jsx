@@ -5,7 +5,7 @@ function Navigation({navMenu: {navPath, navImage, navImageInactive, navName}, di
 
   
   const pathname = useLocation();
-  let isActive = pathname.pathname === `/user/${navPath}`;
+  let isActive = pathname.pathname.includes(`/user/${navPath}`);
 
   return (
     <NavLink 

@@ -1,9 +1,8 @@
 import React from 'react'
-import { products } from '../../products/dataDummy'
 import './categories.scss'
 
-function Category({handleCategory, activeCategory, categories}) {
-    
+function Category({handleCategory, activeCategory, products}) {
+    const categories = ['All', ...new Set(products.map(product => product.productCategory))];
 
     return (
         <div className='categories-container'>
