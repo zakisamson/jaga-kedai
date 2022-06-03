@@ -1,0 +1,33 @@
+.login-page {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(
+    5.45deg,
+    #2c7a51 42.28%,
+    #34905f 76.95%,
+    #48c783 122.62%
+  );
+  img {
+    padding-block: 20px;
+  }
+  .login-card {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    h1 {
+      color: #2c7a51;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: left;
+      padding-block: 30px;
+    }
+    
+  }
+}
