@@ -20,7 +20,6 @@ function App() {
     setProducts(obj)
   }
 
-  console.log(products)
   return (
     <Router>
       <Routes>

@@ -10,8 +10,7 @@ function EditMenu({handleProduct, products}) {
         productId: '',
         productName: '',
         productCategory: '', 
-        productPrice: 0,
-        productImage: ''
+        productPrice: 0
     })
     console.log(handleProduct)
     useEffect(() => {
@@ -48,7 +47,7 @@ function EditMenu({handleProduct, products}) {
             </div>
             <div className="menu__add__form__control">
                 <label htmlFor="productPrice">Product Price</label>
-                <input type="text" name='productCategory' onChange={handleInput} value={selectedProduct.productPrice}/>
+                <input type="text" name='productPrice' onChange={handleInput} value={selectedProduct.productPrice}/>
             </div>
             <div className="menu__add__form__control">
                 <label htmlFor="productImage">Product Image</label>
