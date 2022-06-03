@@ -1,30 +1,71 @@
-import React from 'react'
-import { assets } from '../NavBar.jsx/assets';
-import './login-register.scss'
+import React, { useState } from "react";
+import { assets } from "../SideBar/assets";
+import "./login-register.scss";
 
 function Login() {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+    console.log(showPassword);
+  };
+
   return (
-    <div id="layout-right" className="login-page">
-        <img src={assets.logoSecondaryIcon} alt="" />
-        <div className='login-card'>
-            <h1>Hai,<br/> selamat datang!</h1>
-            <form action="" className='form-container'>
-                <div className='form-control'>
-                    <img src={assets.logoIcon} alt="" />
-                    <input type="text" name="email" id="email" placeholder='Username'/>
-                </div>
-                <div className="form-control" style={{marginBottom: '50px'}}>
-                    <img src={assets.logoIcon} alt="" />
-                    <input type="password" name="password" placeholder='Password'/>
-                    <button type='button'>eye</button>
-                    <p style={{fontSize:'15px', textAlign:'right', color:'#318759'}}>Lupa password?</p>
-                </div>
-                <button type='submit' className='submit-btn'>Masuk</button>
-                <p style={{fontWeight:'400', color:'#318759', fontSize:'13px', textAlign:'center', paddingBlock:'10px'}}>Belum punya akun? <span style={{fontWeight:'700', color:'#FEB74D'}}>Register di sini</span></p>
-            </form>
-        </div>
+    <div className="login__page">
+      <a href="/user" className="submit__btn">
+        <img src={assets.logoPutihIcon} alt="" />
+      </a>
+      <div className="login__card">
+        <h1>
+          Hai,
+          <br /> selamat datang!
+        </h1>
+        <form action="" className="form__container">
+          <div className="form__control">
+            <img className="input__icon" src={assets.userIcon} alt="" />
+            <input type="text" name="email" id="email" placeholder="Username" />
+          </div>
+          <div className="form__control" style={{ marginBottom: "50px" }}>
+            <img className="input__icon" src={assets.lockIcon} alt="" />
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="Password"
+            />
+            <button type="button" onClick={handleShowPassword}>
+              <img
+                id="show__btn"
+                src={showPassword ? assets.eyeOffIcon : assets.eyeIcon}
+                alt="show password"
+              />
+            </button>
+            <p
+              style={{ fontSize: "15px", textAlign: "right", color: "#318759" }}
+            >
+              Lupa password?
+            </p>
+          </div>
+          <button type="submit" className="submit__btn">
+            Masuk
+          </button>
+          <p
+            style={{
+              fontWeight: "400",
+              color: "#318759",
+              fontSize: "13px",
+              textAlign: "center",
+              paddingBlock: "10px",
+            }}
+          >
+            Belum punya akun?{" "}
+            <a href="/register" style={{ fontWeight: "700", color: "#FEB74D" }}>
+              Register di sini
+            </a>
+          </p>
+        </form>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;
