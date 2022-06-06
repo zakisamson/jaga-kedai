@@ -1,10 +1,20 @@
 import React, { useState } from "react";
 import { assets } from "../SideBar/assets";
 import "./login-register.scss";
+import validator from 'react-validation';
 
 function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setConfirmShowPassword] = useState(false);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [confPassword, setConfPassword] = useState('');
+
+  const handleSubmitLogin = (e) => {
+    e.preventDefault()
+    if(!validator.isEmail(email)) return alert("email is not valid")
+  }
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -21,7 +31,7 @@ function Register() {
       <div className="login__card">
         <h1 style={{paddingBottom:'0'}}>Mulai buka tokomu</h1>
         <p style={{fontWeight:'400', fontSize: '12px', color:'#318759', paddingBottom: '30px'}}>Buat akun tokomu sekarang juga</p>
-        <form action="" className="form__container">
+        <form action="" className="form__container" onSubmit={handleSubmitLogin}>
           <div className="form__control">
             <img className="input__icon" src={assets.userIcon} alt="" />
             <input type="text" name="email" id="email" placeholder="Username" />

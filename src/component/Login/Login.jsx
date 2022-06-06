@@ -2,13 +2,22 @@ import React, { useState } from "react";
 import { assets } from "../SideBar/assets";
 import "./login-register.scss";
 
+
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
     console.log(showPassword);
   };
+
+  const handleSubmitLogin = (e) => {
+    e.preventDefault()
+    
+  }
 
   return (
     <div className="login__page">
@@ -20,7 +29,7 @@ function Login() {
           Hai,
           <br /> selamat datang!
         </h1>
-        <form action="" className="form__container">
+        <form action="" className="form__container" onSubmit={handleSubmitLogin}>
           <div className="form__control">
             <img className="input__icon" src={assets.userIcon} alt="" />
             <input type="text" name="email" id="email" placeholder="Username" />
