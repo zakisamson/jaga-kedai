@@ -1,40 +1,72 @@
 import React, { useState } from "react";
 import { assets } from "../SideBar/assets";
 import "./login-register.scss";
-import validator from 'react-validation';
+import { useNavigate } from "react-router-dom";
+import { validUsername, validEmail, validPassword } from "../../Regex";
 
 function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setConfirmShowPassword] = useState(false);
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
-  const [confPassword, setConfPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [confPassword, setConfPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmitLogin = (e) => {
-    e.preventDefault()
-    if(!validator.isEmail(email)) return alert("email is not valid")
-  }
+    e.preventDefault();
+    if (!validUsername.test(username)) return alert("Username doesn't match the requirement");
+
+    if (!validEmail.test(email)) return alert("Email isn't valid.");
+
+    if (!validPassword.test(password)) return alert("Password doesn't match the requirement");
+
+    if(!validPassword.test(confPassword)) return alert("Confirmation password doesn't match the requirement");
+
+    if (password !== confPassword) {
+      alert("Password doesn't match.");
+      return false;
+    } else {
+      return navigate("../login");
+    }
+  };
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
-    console.log(showPassword);
   };
 
   const handleConfirmShowPassword = () => {
     setConfirmShowPassword(!showConfirmPassword);
-    console.log(showConfirmPassword);
   };
+
   return (
     <div className="login__page">
       <img src={assets.logoPutihIcon} alt="" />
       <div className="login__card">
-        <h1 style={{paddingBottom:'0'}}>Mulai buka tokomu</h1>
-        <p style={{fontWeight:'400', fontSize: '12px', color:'#318759', paddingBottom: '30px'}}>Buat akun tokomu sekarang juga</p>
-        <form action="" className="form__container" onSubmit={handleSubmitLogin}>
+        <h1 style={{ paddingBottom: "0" }}>Mulai buka tokomu</h1>
+        <p
+          style={{
+            fontWeight: "400",
+            fontSize: "12px",
+            color: "#318759",
+            paddingBottom: "30px",
+          }}
+        >
+          Buat akun tokomu sekarang juga
+        </p>
+        <form
+          action=""
+          className="form__container"
+          onSubmit={handleSubmitLogin}
+        >
           <div className="form__control">
             <img className="input__icon" src={assets.userIcon} alt="" />
-            <input type="text" name="email" id="email" placeholder="Username" />
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              onChange={(e) => setUsername(e.target.value)}
+            />
           </div>
           <div className="form__control">
             <img className="input__icon" src={assets.mailIcon} alt="" />
@@ -42,6 +74,7 @@ function Register() {
               type="text"
               name="email"
               placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="form__control">
@@ -50,6 +83,7 @@ function Register() {
               type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
             />
             <button type="button" onClick={handleShowPassword}>
               <img
@@ -65,6 +99,7 @@ function Register() {
               type={showConfirmPassword ? "text" : "password"}
               name="password"
               placeholder="Confirm password"
+              onChange={(e) => setConfPassword(e.target.value)}
             />
             <button type="button" onClick={handleConfirmShowPassword}>
               <img
@@ -73,7 +108,6 @@ function Register() {
                 alt="show password"
               />
             </button>
-            
           </div>
           <button type="submit" className="submit__btn">
             Daftar
