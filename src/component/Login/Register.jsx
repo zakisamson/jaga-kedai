@@ -15,13 +15,16 @@ function Register() {
 
   const handleSubmitLogin = (e) => {
     e.preventDefault();
-    if (!validUsername.test(username)) return alert("Username doesn't match the requirement");
+    if (!validUsername.test(username))
+      return alert("Username doesn't match the requirement");
 
     if (!validEmail.test(email)) return alert("Email isn't valid.");
 
-    if (!validPassword.test(password)) return alert("Password doesn't match the requirement");
+    if (!validPassword.test(password))
+      return alert("Password doesn't match the requirement");
 
-    if(!validPassword.test(confPassword)) return alert("Confirmation password doesn't match the requirement");
+    if (!validPassword.test(confPassword))
+      return alert("Confirmation password doesn't match the requirement");
 
     if (password !== confPassword) {
       alert("Password doesn't match.");

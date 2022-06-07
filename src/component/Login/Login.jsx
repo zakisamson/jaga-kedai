@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { assets } from "../SideBar/assets";
 import "./login-register.scss";
 
@@ -7,7 +8,7 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
+  const navigate = useNavigate();
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -16,7 +17,7 @@ function Login() {
 
   const handleSubmitLogin = (e) => {
     e.preventDefault()
-    
+    navigate("../user/dashboard")
   }
 
   return (
