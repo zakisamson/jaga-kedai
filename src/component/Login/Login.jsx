@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { assets } from "../SideBar/assets";
 import "./login-register.scss";
 
-
-function Login() {
+function Login({account, handleLogin}) {
   const [showPassword, setShowPassword] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -17,7 +16,19 @@ function Login() {
 
   const handleSubmitLogin = (e) => {
     e.preventDefault()
-    navigate("../user/dashboard")
+    // account.find((acc) => username === acc.accountUsername && password === acc.accountPassword)
+    account.forEach((acc)=>{
+      if(username === acc.accountUsername && password === acc.accountPassword){
+        handleLogin({
+          username: username,
+          password: password
+        })
+        navigate("../user/dashboard")
+      } else{
+        alert("doesnt match any account")
+        document.querySelector('.form__container').reset();
+      }
+    }) 
   }
 
   return (
@@ -33,7 +44,7 @@ function Login() {
         <form action="" className="form__container" onSubmit={handleSubmitLogin}>
           <div className="form__control">
             <img className="input__icon" src={assets.userIcon} alt="" />
-            <input type="text" name="email" id="email" placeholder="Username" />
+            <input type="text" name="email" id="email" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
           </div>
           <div className="form__control" style={{ marginBottom: "50px" }}>
             <img className="input__icon" src={assets.lockIcon} alt="" />
@@ -41,6 +52,7 @@ function Login() {
               type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
             />
             <button type="button" onClick={handleShowPassword}>
               <img

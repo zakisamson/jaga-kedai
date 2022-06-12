@@ -4,7 +4,7 @@ import "./login-register.scss";
 import { useNavigate } from "react-router-dom";
 import { validUsername, validEmail, validPassword } from "../../Regex";
 
-function Register() {
+function Register({account}) {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setConfirmShowPassword] = useState(false);
   const [username, setUsername] = useState("");
@@ -15,6 +15,10 @@ function Register() {
 
   const handleSubmitLogin = (e) => {
     e.preventDefault();
+    if(account.find((account) => account.accountUsername === username)) return alert("Username already taken")
+
+    if(account.find((account) => account.accountEmail === email)) return alert("Email already registered")
+
     if (!validUsername.test(username))
       return alert("Username doesn't match the requirement");
 
@@ -30,6 +34,7 @@ function Register() {
       alert("Password doesn't match.");
       return false;
     } else {
+      alert("Account created")
       return navigate("../login");
     }
   };

@@ -21,6 +21,7 @@ export const assets = {
     eyeIcon: importIcons('eye'),
     eyeOffIcon: importIcons('eye-off'),
     mailIcon: importIcons('mail'),
+    logOutIcon: importIcons('log-out'),
     
     defaultPlaceholder: require('./../../products/images/default-placeholder.png')
 }
