@@ -1,5 +1,5 @@
 import './App.scss';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import SideBar from './component/SideBar/SideBar';
 import Dashboard from './component/Dashboard/Dashboard';
