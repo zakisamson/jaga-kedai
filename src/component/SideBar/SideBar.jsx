@@ -30,7 +30,13 @@ function NavBar({displayNavBar, handleDisplayNav}) {
             navImage: assets.reportsIcon,
             navImageInactive: assets.reportsInactiveIcon,
             navPath: 'reports'
-        }
+        },
+        {
+            navName: 'Log out',
+            navImage: assets.logOutIcon,
+            navImageInactive: assets.logOutIcon,
+            navPath: '../login'
+        },
     ]
 
     return (

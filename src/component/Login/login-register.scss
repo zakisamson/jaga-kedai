@@ -1,0 +1,82 @@
+.login__page {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(
+    5.45deg,
+    #2c7a51 42.28%,
+    #34905f 76.95%,
+    #48c783 122.62%
+  );
+  img {
+    padding-block: 20px;
+  }
+  .login__card {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    h1 {
+      color: #2c7a51;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: left;
+      padding-block: 30px;
+    }
+
+    .form__control {
+      position: relative;
+
+      .input__icon {
+        position: absolute;
+        width: 1.125rem;
+        height: 1.563rem;
+        padding: 0;
+        left: 0.625rem;
+        top: 1.125rem;
+      }
+
+      input {
+        min-height: 3.125rem;
+        min-width: 18.75rem;
+        background: #f1f1f1;
+        border-radius: 5px;
+        border: none;
+        margin-block: 0.469rem;
+        padding-left: 2.5rem;
+      }
+
+      button {
+        position: absolute;
+        top: 1.313rem;
+        right: 1.125rem;
+        background-color: transparent;
+        border: none;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+
+        #show__btn{
+          width: 20px;
+          height: 20px;
+          padding: 0;
+        }
+      }
+    }
+
+    .submit__btn {
+      width: 100%;
+      background: #feb74d;
+      border-radius: 5px;
+      border: none;
+      min-height: 2.5rem;
+      font-weight: 500;
+    }
+  }
+}
