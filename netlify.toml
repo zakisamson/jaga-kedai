@@ -1,3 +1,4 @@
+// gatau yaopo cara kerjane, tapi berguna untuk solve netlify page not found
 [[redirects]]
     from = "*/"
     to = "/index.html"
